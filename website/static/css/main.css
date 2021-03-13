@@ -22,6 +22,11 @@ a {
     height: 47.6px;
 }
 
+.green {
+    background-color: #19aa8d !important;
+    border-color: #19aa8d !important;
+}
+
 @media only screen
 and (max-width : 823px) {
     #logo {
