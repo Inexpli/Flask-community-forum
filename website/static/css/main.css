@@ -7,15 +7,47 @@ body {
 }
 
 #logo {
-    min-width: 400px;
-    width: 37%;
-    margin-top: 40px;
+    min-width: 350px;
+    width: 470px;
+    margin-top: 60px;
 }
 
 h1 {
-    margin-top: 30px;
+    margin: 60px 30px 0 30px;
 }
 
-button {
+a {
     margin: 50px 40px 0 40px;
+    width: 169.31px;
+    height: 47.6px;
+}
+
+@media only screen
+and (max-width : 823px) {
+    #logo {
+        min-width: 350px;
+        margin-top: 50px;
+    }
+}
+
+@media only screen
+and (max-width : 500px) {
+    #logo {
+        min-width: 380px;
+        width: 100%;
+    }
+}
+
+@media only screen
+and (max-width : 404px) {
+    #logo {
+        margin-top: 90px;
+        min-width: 300px;
+        width: 100%;
+    }
+    
+    h1 {
+        margin-top: 70px;
+        font-size: 1.5rem;
+    }
 }
