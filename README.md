@@ -17,3 +17,6 @@
 
 ##### Front End:
  - Bootstrap (v5.0.0-beta2)
+##### Back END:
+ - Flask-SQLAlchemy (2.4.4)
+ - SQLAlchemy (1.3.23)
