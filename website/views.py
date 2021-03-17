@@ -7,5 +7,6 @@ def index():
     return render_template('index.html')
 
 @views.route('/home')
+@login_required
 def home():
     return render_template('home.html')
