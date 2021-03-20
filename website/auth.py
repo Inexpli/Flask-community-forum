@@ -6,7 +6,8 @@ from . import db
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/login', methods=['GET','POST'])
+
+@auth.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form.get('username')
@@ -16,20 +17,23 @@ def login():
 
         if user_username:
             if check_password_hash(user_username.password, password):
-                flash('Logged in successfuly.', category='success')
+                flash('Logged in successfully!', category='success')
                 return redirect(url_for('views.home'))
             else:
-                flash('Password is incorrect.', category='error')
+                flash('Incorrect password, try again.', category='error')
         else:
-            flash('User doesn\'t exist', category='error')
-    return render_template('login.html')
+            flash('User does not exist.', category='error')
+
+    return render_template("login.html")
+
 
 @auth.route('/logout')
 def logout():
     return redirect(url_for('auth.login'))
 
-@auth.route('/signup', methods=['GET','POST'])
-def singup():
+
+@auth.route('/signup', methods=['GET', 'POST'])
+def sign_up():
     if request.method == 'POST':
         username = request.form.get('username')
         email = request.form.get('email')
@@ -38,7 +42,6 @@ def singup():
 
         user_username = User.query.filter_by(username=username).first()
         user_email = User.query.filter_by(email=email).first()
-
         if user_username:
             flash("Username already exist", category='error')
         elif user_email:
@@ -50,9 +53,11 @@ def singup():
         elif password != confirm_password:
             flash("Passwords don\'t match.", category='error')
         else:
-            new_user = User(username=username, email=email, password=generate_password_hash(password, method='sha256'))
+            new_user = User(username=username, email=email, password=generate_password_hash(
+                password, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
-            flash("Account has been created!", category='success')
-            return redirect(url_for('views.index'))
-    return render_template('signup.html')
+            flash('Account created!', category='success')
+            return redirect(url_for('auth.login'))
+
+    return render_template("signup.html")

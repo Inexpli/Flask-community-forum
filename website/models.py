@@ -1,12 +1,11 @@
-from flask_sqlalchemy import SQLAlchemy
+from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 
-db = SQLAlchemy()
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.username'))
     data = db.Column(db.String(10000))
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
