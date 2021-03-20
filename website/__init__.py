@@ -1,9 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
-from .models import User
-
-db = SQLAlchemy()
+from .models import db, User
 
 DB_NAME = 'database.db'
 
