@@ -14,6 +14,18 @@ body {
     color: #19aa8d !important;
 }
 
+.nav-link:hover {
+    color: white !important;
+}
+
 .nav-link:active {
     color:white !important;
+}
+
+.navbar-dark {
+    background-color: #4d4d4d !important;
+}
+
+.navbar {
+    height: 65px !important;
 }
