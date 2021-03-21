@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
-from flask_login import login_required, login_user, logout_user
+from flask_login import login_required, login_user, logout_user, current_user
 
 
 auth = Blueprint('auth', __name__)
@@ -20,13 +20,13 @@ def login():
             if check_password_hash(user_username.password, password):
                 flash('Logged in successfully!', category='success')
                 login_user(user_username, remember=True)
-                return redirect(url_for('views.home'))
+                return redirect(url_for('views.index'))
             else:
                 flash('Incorrect password, try again.', category='error')
         else:
             flash('User does not exist.', category='error')
 
-    return render_template("login.html")
+    return render_template("login.html", user = current_user)
 
 
 @auth.route('/logout')
@@ -64,4 +64,4 @@ def sign_up():
             flash('Account created!', category='success')
             return redirect(url_for('auth.login'))
 
-    return render_template("signup.html")
+    return render_template("signup.html", user = current_user)

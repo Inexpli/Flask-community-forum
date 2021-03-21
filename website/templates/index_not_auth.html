@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block css %}<link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='css/main.css')}}">{% endblock %}
+{% block title %}Welcome!{% endblock%}
+{% block content%}
+    <div class="row text-center">
+        <div class="col-12">
+            <img src="{{url_for('static', filename='img/logo.png')}}" id="logo"/>
+            <h1>Would you like to join to "Not existing society" ?</h1>
+            <a href="/signup" class="btn btn-info green btn-lg">Yes, I would</a>
+            <a href="/login" class="btn btn-secondary btn-lg">I already joined</a>
+        </div>
+    </div>
+{% endblock %}
