@@ -6,26 +6,14 @@ body {
     margin: 0;
 }
 
-.container-fluid {
-    padding: 0 !important;
-}
-
 .nav-link {
     color: #19aa8d !important;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding-right: .7rem !important;
+    padding-left: .7rem !important;
 }
 
 .nav-link:hover {
     color: white !important;
-}
-
-.nav-link:active {
-    color:white !important;
-}
-
-.navbar-dark {
-    background-color: #4d4d4d !important;
-}
-
-.navbar {
-    height: 65px !important;
 }
