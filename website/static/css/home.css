@@ -17,3 +17,20 @@ body {
 .nav-link:hover {
     color: white !important;
 }
+
+.entry-con {
+    padding: 50px;
+    text-align: center;
+}
+
+.entries {
+    margin-top: 20px;
+    padding: 50px;
+}
+
+#submit {
+    float: right;
+    width: 90px;
+    height: 45px;
+    font-size: 1.2rem;
+}
