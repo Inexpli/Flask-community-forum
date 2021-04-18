@@ -6,7 +6,7 @@ from . import db
 
 views = Blueprint('views', __name__)
 
-@views.route('/')
+@views.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         note = request.form.get('note')
