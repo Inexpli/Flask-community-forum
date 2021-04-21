@@ -2,7 +2,7 @@
  
 ### Python version = 3.6.1
 
-#### Pip list:
+#### Libraries:
  - click (7.1.2)
  - Flask (1.1.2)
  - Flask-Login (0.5.0)
