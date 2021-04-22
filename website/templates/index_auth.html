@@ -42,9 +42,9 @@
         <h1>Write own entry</h1>
         <hr>
         <form method="POST">
-            <!-- <div class="form-group">
-                <input class="form-control form-control-lg" type="text" name="title" placeholder="Title">
-            </div> -->
+            <div class="form-group">
+                <input class="form-control form-control-lg" type="text" name="title" id="title" placeholder="Title">
+            </div>
             <div class="form-group">
                 <textarea class="form-control" rows="3" name="note" id="note" placeholder="Content"></textarea>
             </div>
@@ -56,11 +56,14 @@
         <ul class="list-group list-group-flush" id="notes">
             {% for note in user.notes %}
             <li class="list-group-item">
+                <span id="notetitle" class="h4">{{ note.title }}</span>
+                <br>
+                <br>
                 {{ note.data }}
                 <button type="button" class="close" data-dismiss="alert" style="float: right; margin-left: 10px;">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <span style="float: right;">{{ note.date }}</span>
+                <span style="float: right; margin: 10px 0 0 10px;">{{ note.date }}</span>
             </li>
             {% endfor %}
         </ul>
