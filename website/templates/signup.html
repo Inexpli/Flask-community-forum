@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% block font %}<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">{% endblock %}
+{% block script %}
+<script>
+  window.onload = function() {
+    $('.alert').remove();
+  }
+</script>
+{% endblock %}
 {% block css %}<link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='css/forms.css')}}">{% endblock %}
 {% block title %}Sign up{% endblock%}
 {% block addons %}

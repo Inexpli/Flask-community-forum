@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block css %}<link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='css/main.css')}}">{% endblock %}
+{% block title %}Profile{% endblock%}
+{% block content%}
+    <div class="row text-center">
+        <div class="col-12">
+            <a href="/"><img src="{{url_for('static', filename='img/logo.png')}}" id="logo"/></a>
+            <h1>Your profile data:</h1>
+            <br>
+            <br>
+            <ul class="list-group list-group-flush" id="notes">
+                <li class="list-group-item">
+                    <span class="h4">Nickname: </span><span class="h5" style="color: #19aa8d;">{{ user.username }}</span>
+                    <br>
+                    <br>
+                    <span class="h4">Email address: </span><span class="h5" style="color: #19aa8d;">{{ user.email }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
