@@ -83,7 +83,7 @@
                 <button type="button" class="btn btn-secondary deleteButton" data-toggle="modal" data-target="#delete" style="margin: 10px 0 0 0px; float: right;" onclick="showDelete({{note.id}})">
                     DELETE
                 </button>
-                <button type="button" class="btn btn-info editButton" data-toggle="modal" data-target="#edit" style="margin: 10px 10px 0 0px; float: right;" onclick="editButton()">
+                <button type="button" class="btn btn-info editButton" data-toggle="modal" data-target="#edit" style="margin: 10px 10px 0 0px; float: right;" onclick="showEdit({{note.id}}, {{note.title}}, {{note.data}})">
                     EDIT
                 </button>
                 <span style="float: left; padding: 16px 10px 16px 0;">{{ note.date }}</span>
