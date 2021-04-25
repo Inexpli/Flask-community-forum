@@ -2,14 +2,28 @@ function editButton() {
     console.log('działam')
 };
 
-function deleteNote(noteId) {
-    fetch("/delete-note", {
-      method: "POST",
-      body: JSON.stringify({ noteId: noteId }),
-    }).then((_res) => {
-      window.location.href = "/";
-    });
+// // function deleteNote(noteId) {
+// //     fetch("/delete-note", {
+// //       method: "POST",
+// //       body: JSON.stringify({ noteId: noteId }),
+// //     }).then((_res) => {
+// //       window.location.href = "/";
+// //     });
+// // }
+
+function showDelete(noteId) {
+  document.getElementById('deleteShow').setAttribute('onClick',`deleteNote(${noteId})`)
 }
+
+function deleteNote(noteId) {
+  fetch("/delete-note", {
+    method: "POST",
+    body: JSON.stringify({ noteId: noteId }),
+  }).then((_res) => {
+    window.location.href = "/";
+  });
+}
+
 
 
 // function editButton() {
