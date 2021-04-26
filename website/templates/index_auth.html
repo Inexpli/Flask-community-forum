@@ -75,22 +75,22 @@
         <ul class="list-group list-group-flush" id="notes">
             {% for note in user.notes %}
             <li class="list-group-item">
-                <span id="noteTitleValue" class="h4" style="margin: 0px 10px 10px 0;">{{ note.title }}</span>
+                <span id="noteTitleValue{{note.id}}" class="h4" style="margin: 0px 10px 10px 0;">{{ note.title }}</span>
                 <br>
                 <br>
-                <span id="noteValue">{{ note.data }}</span>
+                <span id="noteValue{{note.id}}">{{ note.data }}</span>
                 <br>
                 <button type="button" class="btn btn-secondary deleteButton" data-toggle="modal" data-target="#delete" style="margin: 10px 0 0 0px; float: right;" onclick="showDelete({{note.id}})">
-                    DELETE
+                    Delete
                 </button>
-                <button type="button" class="btn btn-info editButton" data-toggle="modal" data-target="#edit" style="margin: 10px 10px 0 0px; float: right;" onclick="showEdit({{note.id}}, {{note.title}}, {{note.data}})">
-                    EDIT
+                <button type="button" class="btn btn-info editButton" data-toggle="modal" data-target="#edit" style="margin: 10px 10px 0 0px; float: right;" onclick="showEdit({{note.id}})">
+                    Edit
                 </button>
-                <span style="float: left; padding: 16px 10px 16px 0;">{{ note.date }}</span>
+                <span class="text-muted" style="float: left; padding: 16px 10px 16px 0;">{{ note.date }}</span>
                 <!-- <a href="#" style="margin: 10px 0 0 0px; float: right;">DELETE</a> -->
                 <!-- <a href="#" style="margin: 10px 10px 0 0px; float: right;">EDIT</a> -->
                   <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="Edit" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="editTitle">Edit</h5>
@@ -113,7 +113,7 @@
                     </div>
                   </div>
                   <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>

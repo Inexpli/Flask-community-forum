@@ -36,6 +36,21 @@ def delete_note():
 
     return jsonify({})
 
+@views.route('/edit-note', methods=['POST'])
+def edit_note():
+    note = json.loads(request.data)
+    noteId = note['noteId']
+    noteTitle = note['title']
+    noteContent = note['note']
+    note = Note.query.get(noteId)
+    if note:
+        if note.user_id == current_user.id:
+            note.title = noteTitle
+            note.data = noteContent
+            db.session.commit()
+
+    return jsonify({})
+
 @views.route('/profile')
 @login_required
 def profile():
