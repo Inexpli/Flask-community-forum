@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, login_user, logout_user, current_user
+from sqlalchemy import func
 from .models import Note
 from . import db
 import json
@@ -33,6 +34,7 @@ def delete_note():
         if note.user_id == current_user.id:
             db.session.delete(note)
             db.session.commit()
+            flash('Note deleted!', category='success')
 
     return jsonify({})
 
@@ -47,7 +49,9 @@ def edit_note():
         if note.user_id == current_user.id:
             note.title = noteTitle
             note.data = noteContent
+            note.date = func.now()
             db.session.commit()
+            flash('Note edited!', category='success')
 
     return jsonify({})
 
