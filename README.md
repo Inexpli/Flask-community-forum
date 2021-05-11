@@ -21,7 +21,7 @@
  - Flask-SQLAlchemy (2.4.4)
  - SQLAlchemy (1.3.23)
 
-###Time considered in WebApp is UTC
+### Time considered in WebApp is UTC
 
 <br>
 ### Main
