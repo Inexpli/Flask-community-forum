@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, jsonify
+from flask import Blueprint, render_template, request, flash, jsonify, redirect
 from flask_login import login_required, login_user, logout_user, current_user
 from sqlalchemy import func
 from .models import Note
@@ -22,6 +22,7 @@ def index():
             db.session.add(new_note)
             db.session.commit()
             flash('Note added!', category='success')
+            return redirect('/')
 
     return render_template("index.html", user=current_user)
 
