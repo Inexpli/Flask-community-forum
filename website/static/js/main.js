@@ -1,7 +1,3 @@
-function editButton() {
-    console.log('działam')
-};
-
 function showEdit(noteId) {
   var title = document.getElementById('titleEdit')
   var titleContent = document.getElementById(`noteTitleValue${noteId}`).innerText
